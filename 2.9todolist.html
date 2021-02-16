@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>todolist</title>
+  <link rel="stylesheet" href="./css/2.9.css">
+</head>
+<body>
+<div class="todolist">
+<!--  侧边栏-->
+  <div class="sidebar">
+    <div class="nav">
+      <ul>
+        <li class="item">重要</li>
+        <li class="item">待办</li>
+        <li class="item active">笔记</li>
+      </ul>
+    </div>
+  </div>
+<!--  右边-->
+  <div class="todoContent">
+<!--    输入框-->
+    <input type="text" class="input-box"/>
+    <div class="operation">
+      <button id="save">保存</button>
+    </div>
+<!--    插入的笔记位置-->
+    <div class="innerBox">
+      <div class="content-item" id="importanceContent"></div>
+      <div class="content-item" id="todo">
+        <div class="unfinished">
+          <h2>未完成的</h2>
+        </div>
+        <div class="finished">
+          <h2>已完成的</h2>
+        </div>
+      </div>
+      <div class="content-item" id="note"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let items = document.querySelectorAll('.item');
+  let contentItems = document.querySelectorAll('.content-item');
+  let save = document.querySelector('#save');
+  let inputBox = document.querySelector('.input-box');
+  //笔记
+  let note = document.querySelector('#note');
+  //重要
+  let importanceContent = document.querySelector('#importanceContent')
+  //待办
+  let todo = document.querySelector('#todo');
+  let unfinished = document.querySelector('.unfinished');
+  let finished = document.querySelector('.finished');
+  //tab栏切换
+  for (let k = 0; k < items.length; k++){
+    items[k].setAttribute('item-index',k);
+    items[k].onclick = function (){
+      //移除旧的
+      for (let i in items){
+        items[i].className = "item";
+      }
+      //添加新的
+      this.className = "active";
+      //不刷新跳转内容
+      for (let j=0; j< contentItems.length; j++ ){
+        contentItems[j].style.display ='none';
+      }
+      let index = this.getAttribute('item-index');
+      contentItems[index].style.display  = 'block';
+    }
+  }
+
+  //  保存（增加）
+  save.onclick = function () {
+    //笔记
+    if(items[2].className === "active" ||items[2].className === "item active"){
+      //重要
+      //笔记
+      let oneNote = document.createElement("span");
+      let noteBox = document.createElement("div");
+      let buttonBox = document.createElement("div");
+      //button
+      let modification = document.createElement("button");
+      let del = document.createElement("button");
+      let important = document.createElement("img");
+
+      note.appendChild(noteBox);
+      noteBox.appendChild(oneNote);
+      noteBox.appendChild(buttonBox);
+
+      noteBox.appendChild(oneNote);
+      noteBox.appendChild(buttonBox);
+      buttonBox.appendChild(modification);
+      buttonBox.appendChild(del);
+      buttonBox.appendChild(important);
+
+      oneNote.innerText = inputBox.value;
+      noteBox.className = "noteBox"
+      buttonBox.className = "buttonBox"
+      del.className = "del"
+      modification.className = "modification"
+      modification.innerText = "修改";
+      del.innerText = "删除";
+      important.setAttribute("src","./img/imp1.png")
+      important.className = "importImg"
+
+      //修改功能
+      modification.onclick = function () {
+        let noteBoxs = document.querySelectorAll('.noteBox');
+        let modification = document.querySelectorAll('.modification');
+        let spans = document.querySelectorAll('span');
+        for (let k = 0; k < modification.length; k++){
+          modification[k].setAttribute('mod-index',k);
+        }
+        modIndex = this.getAttribute("mod-index");
+        if(this.innerText === "修改"){
+          spans[modIndex].setAttribute("contenteditable", "true");
+          this.innerText = "保存";
+        }
+        else if(this.innerText === "保存"){
+          spans[modIndex].setAttribute("contenteditable", "flase");
+          this.innerText = "修改";
+        }
+      }
+      //删除功能
+      del.onclick = function () {
+        let noteBoxs = document.querySelectorAll('.noteBox')
+        let dels = document.querySelectorAll('.del')
+        for (let k = 0; k < dels.length; k++){
+          dels[k].setAttribute('del-index',k);
+        }
+        delIndex = this.getAttribute("del-index");
+        noteBoxs[delIndex].style.display = 'none';
+        delete noteBoxs[delIndex];
+      }
+      //  重要功能
+      important.onclick = function () {
+        let importImgs = document.querySelectorAll('.importImg')
+        for (let k = 0; k < importImgs.length; k++){
+          importImgs[k].setAttribute('imp-index',k);
+        }
+        impIndex = this.getAttribute("imp-index");
+        if (this.getAttribute('src') === "./img/imp-active.png"){
+          this.setAttribute("src","./img/imp1.png");
+          note.appendChild(noteBox);
+        }else{
+          this.setAttribute("src","./img/imp-active.png");
+          importanceContent.appendChild(noteBox);
+        }
+      }
+    }
+
+    // 重要
+    if(items[0].className === "active"){
+      //重要
+      //笔记
+      let oneNote = document.createElement("span");
+      let noteBox = document.createElement("div");
+      let buttonBox = document.createElement("div");
+      //button
+      let modification = document.createElement("button");
+      let del = document.createElement("button");
+      let important = document.createElement("img");
+
+      importanceContent.appendChild(noteBox);
+      noteBox.appendChild(oneNote);
+      noteBox.appendChild(buttonBox);
+
+      noteBox.appendChild(oneNote);
+      noteBox.appendChild(buttonBox);
+      buttonBox.appendChild(modification);
+      buttonBox.appendChild(del);
+      buttonBox.appendChild(important);
+
+      oneNote.innerText = inputBox.value;
+      noteBox.className = "noteBox"
+      buttonBox.className = "buttonBox"
+      del.className = "del"
+      modification.className = "modification"
+      modification.innerText = "修改";
+      del.innerText = "删除";
+      important.setAttribute("src","./img/imp-active.png")
+      important.className = "importImg"
+
+      //修改功能
+      modification.onclick = function () {
+        let noteBoxs = document.querySelectorAll('.noteBox');
+        let modification = document.querySelectorAll('.modification');
+        let spans = document.querySelectorAll('span');
+        for (let k = 0; k < modification.length; k++){
+          modification[k].setAttribute('mod-index',k);
+        }
+        modIndex = this.getAttribute("mod-index");
+        if(this.innerText === "修改"){
+          spans[modIndex].setAttribute("contenteditable", "true");
+          this.innerText = "保存";
+        }
+        else if(this.innerText === "保存"){
+          spans[modIndex].setAttribute("contenteditable", "flase");
+          this.innerText = "修改";
+        }
+      }
+      //删除功能
+      del.onclick = function () {
+        let noteBoxs = document.querySelectorAll('.noteBox')
+        let dels = document.querySelectorAll('.del')
+        for (let k = 0; k < dels.length; k++){
+          dels[k].setAttribute('del-index',k);
+        }
+        delIndex = this.getAttribute("del-index");
+        noteBoxs[delIndex].style.display = 'none';
+        delete noteBoxs[delIndex];
+      }
+      //  重要功能
+      important.onclick = function () {
+        let importImgs = document.querySelectorAll('.importImg')
+        for (let k = 0; k < importImgs.length; k++){
+          importImgs[k].setAttribute('imp-index',k);
+        }
+        impIndex = this.getAttribute("imp-index");
+        if (this.getAttribute('src') === "./img/imp-active.png"){
+          this.setAttribute("src","./img/imp1.png");
+          note.appendChild(noteBox);
+        }else{
+          this.setAttribute("src","./img/imp-active.png");
+          importanceContent.appendChild(noteBox);
+        }
+      }
+    }
+
+  //  待办
+    if(items[1].className === "active"){
+      console.log(1)
+      //重要
+      //笔记
+      let oneNote = document.createElement("span");
+      let noteBox = document.createElement("div");
+      let buttonBox = document.createElement("div");
+      //button
+      let modification = document.createElement("button");
+      let del = document.createElement("button");
+      let end = document.createElement("button");
+
+      unfinished.appendChild(noteBox);
+      noteBox.appendChild(oneNote);
+      noteBox.appendChild(buttonBox);
+
+      noteBox.appendChild(oneNote);
+      noteBox.appendChild(buttonBox);
+      buttonBox.appendChild(modification);
+      buttonBox.appendChild(del);
+      buttonBox.appendChild(end);
+
+      oneNote.innerText = inputBox.value;
+      noteBox.className = "noteBox"
+      buttonBox.className = "buttonBox"
+      del.className = "del"
+      end.className = "end"
+      modification.className = "modification"
+      modification.innerText = "修改";
+      del.innerText = "删除";
+      end.innerText = "已经完成移除此待办";
+
+      //修改功能
+      modification.onclick = function () {
+        let modification = document.querySelectorAll('.modification');
+        let spans = document.querySelectorAll('span');
+        for (let k = 0; k < modification.length; k++){
+          modification[k].setAttribute('mod-index',k);
+        }
+        modIndex = this.getAttribute("mod-index");
+        if(this.innerText === "修改"){
+          spans[modIndex].setAttribute("contenteditable", "true");
+          this.innerText = "保存";
+        }
+        else if(this.innerText === "保存"){
+          spans[modIndex].setAttribute("contenteditable", "flase");
+          this.innerText = "修改";
+        }
+      }
+      //删除功能
+      del.onclick = function () {
+        let noteBoxs = document.querySelectorAll('.noteBox')
+        let dels = document.querySelectorAll('.del')
+        for (let k = 0; k < dels.length; k++){
+          dels[k].setAttribute('del-index',k);
+        }
+        delIndex = this.getAttribute("del-index");
+        noteBoxs[delIndex].style.display = 'none';
+        delete noteBoxs[delIndex];
+      }
+      //完成功能
+      end.onclick = function () {
+        endIndex = this.getAttribute("end-index");
+        if (this.innerText === "已经完成移除此待办"){
+          this.innerText = "还未完成恢复此待办";
+          finished.appendChild(noteBox);
+        }
+        else if (this.innerText === "还未完成恢复此待办"){
+          this.innerText = "已经完成移除此待办";
+          unfinished.appendChild(noteBox);
+        }
+      }
+    }
+
+  };
+
+</script>
+</body>
+</html>

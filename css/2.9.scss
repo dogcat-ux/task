@@ -1,0 +1,163 @@
+$Color1: #7ebeab;
+$Color2: #bed3ca;
+$titleColor: #ffff;
+$activeColor: rgba(255, 255, 255, 0.84);
+$fontsize: 0.20rem /* 25.0/100.0 */ ;
+@media screen and (min-width:1920px) {
+  html{
+    font-size: 100px;
+  }
+}
+@media screen and (max-width:1920px) {
+  html{
+    font-size: 100px;
+  }
+}
+@media screen and (max-width:1680px) {
+  html{
+    font-size:  87.5px;
+  }
+}
+@media screen and (max-width:1440px) {
+  html{
+    font-size: 75px;
+  }
+}
+@media screen and (max-width:1366px) {
+  html{
+    font-size: 71.1px;
+  }
+}
+@media screen and (max-width:1280px) {
+  html{
+    font-size: 66.7px;
+  }
+}
+@media screen and (max-width:1024px) {
+  html{
+    font-size: 53.3px;
+  }
+}
+html{
+  height: 100%;
+}
+body{
+  padding: 0;
+  margin: 0 auto;
+  height: 100%;
+}
+li{
+  list-style: none;
+}
+.todolist{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 0.16rem /* 16.0/100.0 */;
+  .sidebar{
+    color: $Color1;
+    width: 3.00rem /* 500.0/100.0 */;
+    height: 100vh;
+    background-color: $titleColor;
+    ul{
+      margin-top: 1.00rem /* 100.0/100.0 */;
+      padding: 0;
+      border: 0;
+      .item{
+        cursor: pointer;
+        font-size: $fontsize;
+        width: 3.00rem /* 500.0/100.0 */;
+        height: 0.50rem /* 100.0/100.0 */;
+        background-color: $titleColor;
+        text-align: center;
+        padding-top: 0.2rem;
+        img{
+          width: 0.30rem /* 20.0/100.0 */;
+        }
+      }
+      .active{
+        @extend .item;
+        background-color: #bed3ca;
+        text-align: center;
+      }
+    }
+  }
+  .todoContent{
+    flex: 1;
+    height: 100vh;
+    background-color: $Color2;
+    text-align: center;
+    .input-box{
+      width: 8.00rem /* 400.0/100.0 */;
+      //height: 2.00rem /* 200.0/100.0 */;
+      margin-top: 0.50rem /* 50.0/100.0 */;
+      border: 0;
+      border-radius: 10px;
+      outline:0;
+      text-align: left;
+      padding-bottom: 2rem;
+    }
+    .operation{
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+    .content-item:last-child{
+      display: block;
+    }
+    .content-item{
+      display: none;
+      color: #0C0C0C;
+      background-color: $Color2;
+      .noteBox{
+        span{
+          margin: 0.15rem /* 5.0/100.0 */ auto 0 /* 15.0/100.0 */ auto;
+          display: block;
+          width: 8.00rem /* 400.0/100.0 */;
+          height: 1rem;
+          font-size: 0.16rem /* 16.0/100.0 */;
+          background-color: #fff;
+          border-radius: 0.10rem /* 10.0/100.0 */;
+        }
+        .buttonBox{
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          flex-basis: content-box;
+          .importImg{
+            margin: 0.05rem 0.15rem /* 15.0/100.0 */;
+            width: 0.30rem /* 40.0/100.0 */;
+            height: 0.30rem /* 40.0/100.0 */;
+            cursor: pointer;
+          }
+          .importImg:active{
+          }
+        }
+        }
+      .finished{
+        background-color: #e0e0e0;
+        button{
+          background-color: #c9c9c9;
+        }
+      }
+      }
+    #todo{
+
+    }
+    }
+  }
+button{
+  border: 0;
+  margin: 0.05rem 0.15rem /* 15.0/100.0 */;
+  //margin: 0.05rem /* 10.0/100.0 */;
+  background-color: $Color1;
+  color: $titleColor;
+  outline: 0;
+  cursor: pointer;
+  height: 0.30rem /* 30.0/100.0 */;
+  font-size: 0.18rem /* 18.0/100.0 */;
+}
+button:active{
+  background-color: #568072;
+}

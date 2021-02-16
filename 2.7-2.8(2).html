@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/2.1.css">
+  <style>
+    .login-box-plus{
+      height: 6.00rem /* 600.0/100.0 */;
+    }
+    .login-text-plus{
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="login-box login-box-plus">
+  <!--  文字提醒-->
+  <div class="login-text login-text-plus">
+    <p>账户基本信息修改</p>
+  </div>
+  <!--登录模块-->
+  <form action="#" class="login-part login-part-plus">
+    <input type="text" placeholder="用户名" class="name" id="name">
+    <input type="text" placeholder="性别" class="name" id="sex">
+    <input type="text" placeholder="手机号码" class="name" id="tel">
+    <input type="text" placeholder="密码" class="password" id="password">
+    <button type="submit" class="enter-btn">确认修改</button>
+  </form>
+</div>
+
+<script>
+  let name = document.querySelector('#name');
+  let tel = document.querySelector('#tel');
+  let password = document.querySelector('#password');
+  tel.onblur = function () {
+    let reg = /^1(3[0-9]|4[5,7]|5[0,1,2,3,5,6,7,8,9]|6[2,5,6,7]|7[0,1,7,8,6]|8[0-9]|9[1,8,9])\d{8}$/;
+    if (!reg.test(this) || !this.length === 11) {
+      alert("请输入符合要求的手机号码")
+    }
+  }
+  name.onblur = function () {
+    if (name.value.length<2||name.value.length>=9){
+      alert('请输入符合要求的用户名');
+    }
+  }
+  password.onblur = function () {
+    let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    if(!reg.test(this)){
+      alert("请输入符合要求的密码")
+    }
+  }
+
+
+</script>
+</body>
+</html>

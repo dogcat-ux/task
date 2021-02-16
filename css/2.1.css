@@ -1,0 +1,121 @@
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (max-width: 1920px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (max-width: 1680px) {
+  html {
+    font-size: 87.5px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 75px;
+  }
+}
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 71.1px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 66.7px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 53.3px;
+  }
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+  background-color: #dcdcdc;
+}
+.login-box {
+  width: 6rem /* 600.0/100.0 */;
+  height: 4rem /* 400.0/100.0 */;
+  background-color: #ffffff;
+  font-size: 0.16rem /* 16.0/100.0 */;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.login-box .login-text {
+  font-size: 0.25rem /* 28.0/100.0 */;
+  text-align: center;
+}
+.login-box .login-text p {
+  margin-top: 0.6rem /* 60.0/100.0 */;
+  height: 3rem /* 200.0/100.0 */;
+}
+.login-box .login-part {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 5rem /* 450.0/100.0 */;
+  height: 2rem /* 200.0/100.0 */;
+  text-align: center;
+}
+.login-box .login-part .name,
+.login-box .login-part .password {
+  padding: 0;
+  width: 100%;
+  height: 0.5rem /* 50.0/100.0 */;
+  outline-style: none;
+  border: 1px solid #c2bebe;
+  margin-top: 0.2rem /* 10.0/100.0 */;
+}
+.login-box .login-part .enter-btn {
+  width: 100%;
+  height: 0.5rem /* 50.0/100.0 */;
+  color: #fff;
+  background: #0bc5de;
+  line-height: 0.5rem /* 50.0/100.0 */;
+  text-align: center;
+  margin-top: 0.2rem /* 10.0/100.0 */;
+  border: 0;
+}
+.login-box .login-part .enter-btn:hover {
+  cursor: pointer;
+  background: #1db5c9;
+}
+.login-box .login-part .footer {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  color: #9b9c98;
+  font-size: 0.12rem /* 12.0/100.0 */;
+  margin-top: 0.2rem /* 20.0/100.0 */;
+}
+.login-box .login-part .footer p:hover {
+  cursor: pointer;
+  color: #484847;
+  font-weight: 600;
+}
+.login-box .login-part .left {
+  float: left;
+}
+.login-box .login-part .right {
+  float: right;
+}
+/*# sourceMappingURL=2.1.css.map */

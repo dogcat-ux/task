@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/2.5.css">
+</head>
+<body>
+<div class="calculator">
+  <div class="show"></div>
+  <div>
+    <span>(</span>
+    <span>)</span>
+    <span>+</span>
+    <span>=</span>
+  </div>
+  <div>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>-</span>
+  </div>
+  <div>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>*</span>
+  </div>
+  <div>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>/</span>
+  </div>
+  <div>
+    <span>%</span>
+    <span>0</span>
+    <span>.</span>
+    <span>del</span>
+  </div>
+</div>
+</body>
+<script>
+  const show = document.querySelector('.show');
+  const spans = document.querySelectorAll('span');
+  for(let k in spans){
+    spans[k].onclick = function () {
+      if (this.innerHTML !== "="&& this.innerHTML !== "del"){
+        show.innerHTML += this.innerHTML
+      }else if(this.innerHTML === "del"){
+        show.innerHTML = ''
+      }else {
+        show.innerHTML = eval(show.innerHTML)
+      }
+    }
+  }
+</script>
+</html>

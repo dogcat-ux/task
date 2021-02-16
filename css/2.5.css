@@ -1,0 +1,27 @@
+.calculator {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  background-color: #d79f9f; }
+  .calculator .show {
+    width: 400px;
+    height: 100px;
+    background-color: #fff;
+    border: 1px solid #565656; }
+  .calculator div {
+    width: 400px;
+    height: 60px;
+    display: flex; }
+    .calculator div span {
+      cursor: pointer;
+      flex: 1;
+      border: 1px solid #0C0C0C;
+      background-color: #cacfff;
+      text-align: center;
+      line-height: 60px;
+      font-size: 25px; }
+      .calculator div span .equal {
+        background-color: #38b5b8; }
+
+/*# sourceMappingURL=2.5.css.map */

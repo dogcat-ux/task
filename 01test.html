@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .row {
+      display: flex;
+    }
+    .item {
+      border: 1px solid black;
+      padding: 10px;
+      width: 20px;
+    }
+  </style>
+  <title>计算器</title>
+</head>
+<body>
+<div class="row">
+  <input type="text" id="text" />
+  <input type="button" value="清空" id="clear" />
+</div>
+<div class="row">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
+<div class="row">
+  <div class="item">5</div>
+  <div class="item">6</div>
+  <div class="item">7</div>
+  <div class="item">8</div>
+</div>
+<div class="row">
+  <div class="item">9</div>
+  <div class="item">0</div>
+  <div class="item">+</div>
+  <div class="item">*</div>
+</div>
+<div class="row">
+  <div class="item">/</div>
+  <div class="item">(</div>
+  <div class="item">)</div>
+  <div class="item">=</div>
+</div>
+<script>
+  // ES5
+  var items = document.querySelectorAll(".item");
+  var btn = document.querySelector("#clear");
+  var input = document.querySelector("#text");
+  var str = "";
+  for (var i = 0; i < items.length; i++) {
+    items[i].addEventListener("click", function (e) {
+      var text = this.innerText;
+      if (text === "=") {
+        try {
+          str = eval(str);
+        } catch (e) {
+          str = e.message;
+        }
+      } else {
+        str += text;
+      }
+      input.value = str;
+    });
+  }
+  btn.addEventListener("click", function (e) {
+    str = "";
+    input.value = str;
+  });
+</script>
+</body>
+</html>

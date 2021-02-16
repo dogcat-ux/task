@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/2.1.css">
+</head>
+<body>
+<div class="login-box">
+<!--  文字提醒-->
+  <div class="login-text">
+    <p>登录</p>
+  </div>
+<!--登录模块-->
+  <form action="#" class="login-part">
+    <input type="text" placeholder="请输入用户名" class="name">
+    <input type="text" placeholder="请输入密码" class="password">
+    <button type="submit" class="enter-btn">登录</button>
+    <div class="footer">
+      <p class="left">忘记密码 ?</p>
+      <p class="right">注册账户</p>
+    </div>
+  </form>
+</div>
+
+<script>
+  const styles = ["Jazz", "Blues"];
+  let name = document.querySelector('.name');
+  name.onblur = function () {
+    if (name.value.length<=2||name.value.length>=9){
+      alert('请输入符合要求的用户名');
+    }else {
+      alert('好的');
+    }
+  }
+</script>
+</body>
+</html>

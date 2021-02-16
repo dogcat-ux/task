@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+// <!--  1-->
+  function filterRange(arr, a, b) {
+    let arr2 = [];
+    for(let k in arr)
+      if(arr[k]>=a&&arr[k]<=b)
+        arr2.push(arr[k]);
+    return arr2
+  }
+  let arr = [5, 3, 8, 1];
+  let filtered = filterRange(arr,1,4);
+  alert( filtered);
+  alert(arr)
+//  2
+  function convert(user) {
+    let tempArr = [];
+    for(let k in user){
+      tempArr.push(user[k].name);
+    }
+    return tempArr
+  }
+//  实验
+  let john = { name: "John", age: 25};
+  let pete = { name: "Pete", age: 30};
+  let mary = { name: "Mary", age: 28};
+  let user = [john, pete, mary];
+  let names = convert(user);
+  alert( names)
+
+</script>
+</body>
+</html>

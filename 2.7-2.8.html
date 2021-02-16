@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/1.29.css">
+  <style>
+    .item{
+      cursor: pointer;
+    }
+    .content-item{
+      display: none;
+    }
+    .active{
+      color: #7bcae2;
+    }
+  </style>
+</head>
+<body>
+<div class="nav">
+  <ul>
+    <li class="item">zhong</li>
+    <li class="item">Blog</li>
+    <li class="item">About us</li>
+    <li class="item">Our history</li>
+    <li class="item">Contacts</li>
+  </ul>
+</div>
+<div class="innerBox">
+  <div class="content-item">1</div>
+  <div class="content-item">2</div>
+  <div class="content-item">3</div>
+  <div class="content-item">4</div>
+  <div class="content-item">5</div>
+</div>
+
+<script>
+  let items = document.querySelectorAll('.item');
+  let contentItems = document.querySelectorAll('.content-item');
+  for (let k = 0; k < items.length; k++){
+    items[k].setAttribute('item-index',k);
+    items[k].onclick = function (){
+      //移除旧的
+      for (let i in items){
+        items[i].className = "item";
+      }
+      //添加新的
+      this.className = "active";
+      //不刷新跳转内容
+      for (let j=0; j< contentItems.length; j++ ){
+        contentItems[j].style.display ='none';
+      }
+      let index = this.getAttribute('item-index');
+      console.log(index)
+      contentItems[index].style.display  = 'block';
+    }
+  }
+</script>
+</body>
+</html>

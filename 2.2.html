@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div></div>
+<p>请输入大于100的数字</p>
+<input type="text" id="input">
+<p id="reminder"></p>
+<script>
+// <!--1.-->
+  const div = document.querySelector('div')
+  const styles = ["Jazz", "Blues"];
+  console.log(styles);
+//2
+  styles.push('Rock-n-Roll');
+  console.log(styles);
+  //3
+  styles[(styles.length-1)/2] = 'Classics';
+  console.log(styles);
+//4
+  div.innerHTML = styles.shift();
+  console.log(styles);
+//5
+  styles.unshift("Rap","Reggae")
+  console.log(styles);
+
+// 三
+  const input = document.querySelector('#input');
+  const reminder = document.querySelector('#reminder');
+  input.addEventListener('blur',function () {
+    if (input.value<=100){
+      reminder.innerHTML = '请重新输入大于100的数字';
+    }else{
+      reminder.innerHTML = '';
+    }
+  })
+
+</script>
+
+</body>
+</html>

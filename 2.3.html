@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text">
+<button>age judge</button>
+<script>
+  const input = document.querySelector('input');
+  const btn = document.querySelector('button');
+  btn.addEventListener('click', function checkAge() {
+    return input.value>=18||confirm('Do your have your parents permission to access this page');
+  })
+  // function checkAge(age) {
+  //   return age>=18||confirm('Do your have your parents permission to access this page');
+  // }
+  // function checkAge(age) {
+  //     return age>=18?1:confirm('Do your have your parents permission to access this page');
+  // }
+
+</script>
+</body>
+</html>
